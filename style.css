@@ -1,0 +1,155 @@
+/* Logo Animation */
+#logo {
+    animation: enlargeFadeIn 5s 1;
+}
+
+@keyframes enlargeFadeIn {
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', serif;
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+/* Header Layout */
+header {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+/* Navigation Links */
+.nav_links {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+/* Visited Link Styling */
+.nav_item a:visited {
+    color: blue;
+}
+
+/* Card Header Styling */
+.card > header {
+    background-color: #288088;
+    border-color: #45ADAD;
+    border-style: solid;
+    border-width: 2px;
+    padding: 20px 0;
+    border-radius: 50px 50px 0 0;
+}
+
+/* Card Layout */
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 0 0 450px;
+}
+
+/* Pricing Section Layout */
+.pricing {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+/* Gallery Image Styling */
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* Gallery Layout */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Large Screen Media Query */
+@media screen and (min-width: 900px) {
+    /* Header and Navigation for Large Screens */
+    header {
+        flex-flow: row nowrap;
+    }
+
+    .nav_links {
+        flex-flow: row nowrap;
+    }
+
+    /* Pricing and Card Adjustments for Larger Screens */
+    .pricing,
+    .card {
+        flex: 0 0 275px;
+    }
+
+    /* Sticky Header */
+    body > header {
+        position: sticky;
+        top: 0;
+    }
+}
+
+/* Reduced Motion Preference */
+@media screen and (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none;
+    }
+}
+
+/* Print Media Styles */
+@media print {
+    body {
+        font-family: Arial, Helvetica, 'Times New Roman';
+        background: none;
+    }
+
+    /* Navigation Print Styles */
+    nav {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .nav_links {
+        align-items: flex-end;
+        flex-flow: row nowrap;
+    }
+
+    /* Pricing Print Styles */
+    .pricing {
+        align-items: flex-end;
+        flex-flow: row nowrap;
+        flex: 0 0 325px;
+    }
+
+    /* Card Print Styles */
+    .card {
+        border: 2px solid #45ADDD;
+        flex: 0 0 325px;
+    }
+
+    /* Hide Gallery in Print */
+    #gallery, .gallery {
+        display: none;
+    }
+
+    .card::before {
+        content: "\1F44D\00A0";
+        display: block;
+        font-size: 24px;
+        color: black;
+        text-align: center;
+    }
+}
