@@ -1,0 +1,155 @@
+/* Logo Animation */
+#logo {
+    animation: enlargeFadeIn 5s 1; /* Simplified names and combined properties */
+}
+
+@keyframes enlargeFadeIn {
+    from {
+        width: 25px; /* Changed to more common 'from' and 'to' */
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', serif; /* Removed double quotes for consistency */
+    background-image: url('../images/concrete_seamless.png'); /* Separated properties for clarity */
+    background-color: #f1f1f1; /* Background color as a separate property */
+}
+
+/* Header Layout */
+header {
+    display: flex;
+    flex-flow: column nowrap; /* Combined flex-direction and flex-wrap */
+    align-items: center;
+}
+
+/* Navigation Links */
+.nav_links {
+    display: flex;
+    flex-flow: column nowrap; /* Used flex-flow for consistency */
+}
+
+/* Visited Link Styling */
+.nav_item a:visited {
+    color: blue; /* No changes, kept as-is */
+}
+
+/* Card Header Styling */
+.card > header {
+    background-color: #288088;
+    border-color: #45ADAD; /* Separated border property */
+    border-style: solid;
+    border-width: 2px;
+    padding: 20px 0; /* Simplified padding */
+    border-radius: 50px 50px 0 0; /* Combined border-radius for top-left and top-right */
+}
+
+/* Card Layout */
+.card {
+    display: flex;
+    flex-flow: column nowrap; /* Consistency with flex-flow */
+    flex: 0 0 450px; /* Using the shorthand for flex-grow, flex-shrink, and flex-basis */
+}
+
+/* Pricing Section Layout */
+.pricing {
+    display: flex;
+    flex-flow: row wrap; /* Combined direction and wrap */
+    align-content: center; /* Changed to align-content for wrap */
+    justify-content: center;
+}
+
+/* Gallery Image Styling */
+.gallery img {
+    border: 10px solid #50C7C7; /* Simplified border */
+    margin: 10px;
+    width: 300px; /* No changes, kept as-is */
+}
+
+/* Gallery Layout */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Large Screen Media Query */
+@media screen and (min-width: 900px) {
+    /* Header and Navigation for Large Screens */
+    header {
+        flex-flow: row nowrap; /* Used flex-flow */
+    }
+
+    .nav_links {
+        flex-flow: row nowrap; /* Consistent use of flex-flow */
+    }
+
+    /* Pricing and Card Adjustments for Larger Screens */
+    .pricing,
+    .card {
+        flex: 0 0 275px; /* Shorthand flex property */
+    }
+
+    /* Sticky Header */
+    body > header {
+        position: sticky;
+        top: 0;
+    }
+}
+
+/* Reduced Motion Preference */
+@media screen and (prefers-reduced-motion: reduce) {
+    #logo {
+        animation: none; /* Disabled animation */
+    }
+}
+
+/* Print Media Styles */
+@media print {
+    body {
+        font-family: Arial, Helvetica, 'Times New Roman'; /* Removed quotes and added Helvetica */
+        background: none; /* Removed image and set background to none */
+    }
+
+    /* Navigation Print Styles */
+    nav {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .nav_links {
+        align-items: flex-end;
+        flex-flow: row nowrap; /* Consistency with flex-flow */
+    }
+
+    /* Pricing Print Styles */
+    .pricing {
+        align-items: flex-end;
+        flex-flow: row nowrap; /* Consistent flex-flow */
+        flex: 0 0 325px; /* Shorthand for flex properties */
+    }
+
+    /* Card Print Styles */
+    .card {
+        border: 2px solid #45ADDD; /* Simplified border property */
+        flex: 0 0 325px; /* Flex shorthand */
+    }
+
+    /* Hide Gallery in Print */
+    #gallery, .gallery {
+        display: none;
+    }
+
+    .card::before {
+        content: "\1F44D\00A0"; /* Thumbs up with a non-breaking space */
+        display: block; /* Ensure it's on its own line */
+        font-size: 24px; /* Set size */
+        color: black; /* Set color to black (it may not print in yellow) */
+        text-align: center; /* Center the thumbs up */
+    }
+}
